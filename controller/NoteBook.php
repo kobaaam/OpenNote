@@ -66,10 +66,12 @@ class NoteBook{
 		//get all the folders                            
                         $folders = $model->getSubFolders($id);
 			foreach($folders as $row){
+                            //echo subfolder list
                             $list = "";
                             $fs = $model->getSubFolders($row["id"]);
                             foreach($fs as $folder)
                                 $list = $list."[FOLDER] ".$folder["name"]."<br/>";
+                            //echo note list
                             $notes = $model->getNotesInFolder($row["id"]);
                             foreach($notes as $note)
                                 $list = $list."[*NOTE*] ".$note["title"]."<br/>";
